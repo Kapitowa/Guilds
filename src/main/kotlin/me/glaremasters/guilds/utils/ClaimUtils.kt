@@ -57,22 +57,12 @@ object ClaimUtils {
 
     @JvmStatic
     fun claimPointOne(player: Player, settingsManager: SettingsManager): Location {
-        val y = try {
-            player.world.minHeight
-        } catch (error: NoSuchMethodError) {
-            0
-        }
-        return player.location.subtract(getRadius(settingsManager).toDouble(), player.location.y - y, getRadius(settingsManager).toDouble())
+        return player.location.subtract(getRadius(settingsManager).toDouble(), player.location.y - player.world.minHeight, getRadius(settingsManager).toDouble())
     }
 
     @JvmStatic
     fun claimPointTwo(player: Player, settingsManager: SettingsManager): Location {
-        val y = try {
-            player.world.minHeight
-        } catch (error: NoSuchMethodError) {
-            0
-        }
-        return player.location.add(getRadius(settingsManager).toDouble(), y - player.location.y, getRadius(settingsManager).toDouble())
+        return player.location.add(getRadius(settingsManager).toDouble(), player.world.maxHeight - player.location.y, getRadius(settingsManager).toDouble())
     }
 
     @JvmStatic

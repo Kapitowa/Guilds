@@ -34,6 +34,7 @@ import co.aikar.commands.annotation.Single
 import co.aikar.commands.annotation.Subcommand
 import co.aikar.commands.annotation.Syntax
 import co.aikar.commands.annotation.Values
+import com.Zrips.CMI.CMI
 import me.glaremasters.guilds.Guilds
 import me.glaremasters.guilds.exceptions.ExpectationNotMet
 import me.glaremasters.guilds.guild.Guild
@@ -57,7 +58,7 @@ internal class CommandDemote : BaseCommand() {
     @CommandCompletion("@members")
     @Syntax("<player>")
     fun demote(player: Player, @Conditions("perm:perm=DEMOTE") guild: Guild, @Values("@members") @Single target: String) {
-        val user = Bukkit.getOfflinePlayer(target)
+        val user = CMI.getInstance().playerManager.getUser(target).offlinePlayer
 
         if (user.name.equals(player.name)) {
             throw ExpectationNotMet(Messages.DEMOTE__CANT_DEMOTE)

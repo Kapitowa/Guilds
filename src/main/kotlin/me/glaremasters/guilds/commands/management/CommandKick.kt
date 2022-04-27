@@ -35,6 +35,7 @@ import co.aikar.commands.annotation.Single
 import co.aikar.commands.annotation.Subcommand
 import co.aikar.commands.annotation.Syntax
 import co.aikar.commands.annotation.Values
+import com.Zrips.CMI.CMI
 import java.util.concurrent.TimeUnit
 import me.glaremasters.guilds.Guilds
 import me.glaremasters.guilds.api.events.GuildKickEvent
@@ -73,7 +74,7 @@ internal class CommandKick : BaseCommand() {
     @CommandCompletion("@members")
     @Syntax("<name>")
     fun kick(player: Player, @Conditions("perm:perm=KICK") guild: Guild, @Values("@members") @Single name: String) {
-        val user = Bukkit.getOfflinePlayer(name)
+        val user = CMI.getInstance().playerManager.getUser(name).offlinePlayer
         val asMember = guild.getMember(user.uniqueId) ?: throw ExpectationNotMet(Messages.ERROR__PLAYER_NOT_IN_GUILD, "{player}", name)
 
         if (guild.isMaster(user)) {
