@@ -61,6 +61,13 @@ internal class CommandAlly : BaseCommand() {
             return
         }
 
+        val event = GuildAddAllyEvent(player, guild, target)
+        guilds.server.pluginManager.callEvent(event)
+
+        if (event.isCancelled) {
+            return
+        }
+
         guild.removePendingAlly(target)
         guildHandler.addAlly(guild, target)
 
@@ -84,13 +91,6 @@ internal class CommandAlly : BaseCommand() {
 
         if (guild == target) {
             throw ExpectationNotMet(Messages.ALLY__SAME_GUILD)
-        }
-
-        val event = GuildAddAllyEvent(player, guild, target)
-        guilds.server.pluginManager.callEvent(event)
-
-        if (event.isCancelled) {
-            return
         }
 
         currentCommandIssuer.sendInfo(Messages.ALLY__INVITE_SENT, "{guild}", target.name)
