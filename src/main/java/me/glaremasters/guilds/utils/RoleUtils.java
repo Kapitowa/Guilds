@@ -23,6 +23,7 @@
  */
 package me.glaremasters.guilds.utils;
 
+import com.willfp.eco.util.StringUtils;
 import me.glaremasters.guilds.guild.Guild;
 import me.glaremasters.guilds.guild.GuildHandler;
 import me.glaremasters.guilds.guild.GuildMember;
@@ -122,7 +123,7 @@ public class RoleUtils {
      * @return the name of role
      */
     public static String getCurrentRoleName(GuildMember member) {
-        return member.getRole().getName();
+        return StringUtils.format(member.getRole().getName());
     }
 
     /**
@@ -132,7 +133,7 @@ public class RoleUtils {
      * @return the name of the pre promoted role name
      */
     public static String getPrePromotedRoleName(GuildHandler guildHandler, GuildMember member) {
-        return guildHandler.getGuildRole(member.getRole().getLevel() + 1).getName();
+        return StringUtils.format(guildHandler.getGuildRole(member.getRole().getLevel() + 1).getName());
     }
 
     /**
@@ -142,7 +143,7 @@ public class RoleUtils {
      * @return name of pre demoted role
      */
     public static String getPreDemotedRoleName(GuildHandler guildHandler, GuildMember member) {
-        return guildHandler.getGuildRole(member.getRole().getLevel() - 1).getName();
+        return StringUtils.format(guildHandler.getGuildRole(member.getRole().getLevel() - 1).getName());
     }
 
     /**
