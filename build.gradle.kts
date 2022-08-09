@@ -41,6 +41,7 @@ repositories {
         content { includeGroup("org.codemc.worldguardwrapper") }
     }
     maven("https://repo.glaremasters.me/repository/public/")
+    maven("https://jitpack.io")
 }
 
 dependencies {
@@ -64,7 +65,8 @@ dependencies {
     compileOnly("net.milkbowl:vault:1.7")
     compileOnly("com.mojang:authlib:1.5.25")
     compileOnly("me.clip:placeholderapi:2.11.1")
-    compileOnly(files("/libs/CMIAPI.jar"))
+    compileOnly ("com.willfp:eco:6.38.0")
+    compileOnly (fileTree("./libs").matching { include("*.jar") })
 
     slim("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 }
@@ -148,7 +150,7 @@ tasks {
             "org.jdbi",
             "org.mariadb.jdbc",
             "dev.triumphteam.gui",
-            "net.kyori"
+            "net.kyori",
         )
     }
 

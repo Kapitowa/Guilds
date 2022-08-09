@@ -77,7 +77,7 @@ internal class CommandPrefix : BaseCommand() {
             return
         }
 
-        currentCommandIssuer.sendInfo(Messages.PREFIX__SUCCESSFUL, "{prefix}", prefix)
-        guild.prefix = StringUtils.color(prefix)
+        currentCommandIssuer.sendInfo(Messages.PREFIX__SUCCESSFUL, "{prefix}", com.willfp.eco.util.StringUtils.format(prefix))
+        guild.prefix = com.willfp.eco.util.StringUtils.format(prefix)
     }
 }

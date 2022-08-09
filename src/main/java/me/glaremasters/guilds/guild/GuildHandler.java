@@ -625,6 +625,7 @@ public class GuildHandler {
         String regex = settingsManager.getProperty(GuildSettings.NAME_REQUIREMENTS);
         if (!settingsManager.getProperty(GuildSettings.INCLUDE_COLOR_CODES)) {
             String tmp = StringUtils.color(name);
+            tmp = com.willfp.eco.util.StringUtils.format(tmp);
             return ChatColor.stripColor(tmp).matches(regex);
         }
         return name.matches(regex);
@@ -641,6 +642,7 @@ public class GuildHandler {
         String regex = settingsManager.getProperty(GuildSettings.PREFIX_REQUIREMENTS);
         if (!settingsManager.getProperty(GuildSettings.INCLUDE_COLOR_CODES)) {
             String tmp = StringUtils.color(name);
+            tmp = com.willfp.eco.util.StringUtils.format(tmp);
             return ChatColor.stripColor(tmp).matches(regex);
         }
         return name.matches(regex);

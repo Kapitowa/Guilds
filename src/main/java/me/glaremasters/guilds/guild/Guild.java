@@ -24,11 +24,9 @@
 package me.glaremasters.guilds.guild;
 
 import ch.jalu.configme.SettingsManager;
-import co.aikar.commands.ACFUtil;
 import co.aikar.commands.CommandManager;
 import me.glaremasters.guilds.Guilds;
 import me.glaremasters.guilds.configuration.sections.GuildListSettings;
-import me.glaremasters.guilds.exceptions.ExpectationNotMet;
 import me.glaremasters.guilds.messages.Messages;
 import me.glaremasters.guilds.utils.SkullUtils;
 import org.bukkit.Bukkit;

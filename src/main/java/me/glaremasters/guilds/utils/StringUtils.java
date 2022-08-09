@@ -41,7 +41,7 @@ public final class StringUtils {
     }
 
     public static String color(String input) {
-        return ChatColor.translateAlternateColorCodes('&', input);
+        return com.willfp.eco.util.StringUtils.format(input);
     }
 
     /**
